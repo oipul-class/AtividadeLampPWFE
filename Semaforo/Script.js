@@ -1,60 +1,41 @@
-const RedBTN = document.getElementById("Red");
-const YellowBTN = document.getElementById("Yellow");
-const GreenBTN = document.getElementById("Green");
-const AutoBTN = document.getElementById("Auto");
-const TrafficLight = document.getElementById("SemaforoImg");
-var signalrepeater;
+const buttons = document.getElementById("Buttons")
+const Semaforo = document.getElementById("SemaforoImg");
+let colorIndex = 0;
+let automaticColorChange = null;
 
-function changeToRed () {
-    TrafficLight.src = "Images/vermelho.png";
-    TrafficLight.alt = "Semáforo no vermelho";
-    console.log("Light red");
+const trafficLight = ( event ) => {
+    stopAuto();
+    //event.terget.id = pega o valor da id daquele tag no html
+    turnOn[event.target.id](); 
 }
 
-function changeToYellow () {
-    TrafficLight.src = "Images/amarelo.png";
-    TrafficLight.alt = "Semáforo no amarelo";
-    console.log("Light yellow");
+const nextColorIndex = () => {
+    if (colorIndex < 2) {
+        colorIndex++
+    } else {
+        colorIndex = 0;
+    }
 }
 
-function Repeat() {
-    RepeatStop();
-    signalrepeater = setInterval(Sequence, 2000);
-    console.log("repeat activated")
+const stopAuto = () => {
+    clearInterval( automaticColorChange );
 }
 
-function changeToGreen () {
-    TrafficLight.src = "Images/verde.png";
-    TrafficLight.alt = "Semáforo no verde";
-    console.log("Light green");
+const changeColor = () => {
+    const colors = ["red" , "yellow", "green"];
+    const color = colors[colorIndex];
+    turnOn[color]();
+    nextColorIndex();
 }
 
-function RepeatStop () {
-    clearInterval(signalrepeater);
-    console.log("Signal Repeater stopped");
-}
-
-function Sequence () {
-    setTimeout(changeToRed, 500);
-    setTimeout(changeToYellow, 1000);
-    setTimeout(changeToGreen, 1500);
+//objeto com varias funções
+const turnOn = {
+    "red": () => Semaforo.src = "Images/vermelho.png",
+    "yellow": () => Semaforo.src = "Images/amarelo.png",
+    "green": () => Semaforo.src = "Images/verde.png",
+    "auto": () => automaticColorChange = setInterval( changeColor, 500 )
 }
 
 
-RedBTN.addEventListener("click" , () =>{
-    RepeatStop();
-    changeToRed();
-    changeToRed();
-});
-YellowBTN.addEventListener("click" , () =>{
-    RepeatStop();
-    changeToYellow();
-    changeToYellow();
-});
-GreenBTN.addEventListener("click" , () =>{
-    RepeatStop();
-    changeToGreen();
-    
-});
-AutoBTN.addEventListener("click", Repeat );
 
+buttons.addEventListener ("click" , trafficLight )

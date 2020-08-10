@@ -9,16 +9,29 @@
             img {
                 width: inherit;
                 height: inherit;
+                border: solid 1px black;
+                border-radius: 15px;
             }
 
             .DivHeader {
                 width: 100%;
                 height: 50px;
+                text-align: center;
+                font-size: 25px;
             }
 
             .AtividadeLampada {
                 width: 50px;
                 height: 70px;
+                float: left;
+                clear: both;
+            }
+
+            .AtividadeSemaforo {
+                width: 50px;
+                height: 100px;
+                float: left;
+                margin-left: 50px;
             }
         </style>
 
@@ -33,10 +46,16 @@
             </div>
         </header>    
 
-        <main>
+        <main style="text-align: center;">
             <div id="AtividadeLampada">
                 <a href="Lampada/Index.html">
-                    <img src="Lampada/Images/ligada.jpg">
+                    <img src="Lampada/Images/desligada.jpg">
+                </a>
+            </div>
+
+            <div id="AtividadeSemaforo">
+                <a href="Semaforo/Index.html">
+                    <img src="Semaforo/Images/desligado.png">
                 </a>
             </div>
         </main>

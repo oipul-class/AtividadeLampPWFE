@@ -13,51 +13,44 @@
                 border-radius: 15px;
             }
 
-            .DivHeader {
+            a {
+                height: inherit;
+                width: inherit;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 30px;
+            }
+           
+            .HeaderDiv {
                 width: 100%;
                 height: 50px;
-                text-align: center;
-                font-size: 25px;
             }
 
-            .AtividadeLampada {
-                width: 50px;
-                height: 70px;
-                float: left;
-                clear: both;
-            }
-
-            .AtividadeSemaforo {
-                width: 50px;
-                height: 100px;
-                float: left;
-                margin-left: 50px;
-            }
         </style>
 
     </head>
     
-    <body>
+    <body style="text-align: center;">
         <header>
-            <div id="DivHeader">
+            <div id="HeaderDiv">
                 <h1>
                     Atividade de PWFE
                 </h1>
             </div>
         </header>    
+            
+        <div id="AtividadeLampada">
+            <a href="Lampada/Index.html">
+                <img src="Lampada/Images/desligada.jpg">
+            </a>
+        </div>
 
-        <main style="text-align: center;">
-            <div id="AtividadeLampada">
-                <a href="Lampada/Index.html">
-                    <img src="Lampada/Images/desligada.jpg">
-                </a>
-            </div>
-
-            <div id="AtividadeSemaforo">
-                <a href="Semaforo/Index.html">
-                    <img src="Semaforo/Images/desligado.png">
-                </a>
-            </div>
-        </main>
+        <div id="AtividadeSemaforo">
+            <a href="Semaforo/Index.html">
+                <img src="Semaforo/Images/desligado.png">
+            </a>
+        </div>
     </body>
 </html>
